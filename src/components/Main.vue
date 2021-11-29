@@ -1,10 +1,19 @@
 <template>
   <main>
-      <ul>
-          <li v-for="(movie, i) in movieList" :key="`movie-${i}`">
-              {{ movie.original_title}}
-          </li>
-      </ul>
+    <ul v-for="(movie, i) in movieList" :key="`movie-${i}`">
+       <li>
+           {{ movie.title }}
+       </li>
+       <li>
+           {{ movie.original_title }}
+       </li>
+       <li>
+           {{ movie.original_language }}
+       </li>
+       <li>
+           {{ movie.vote_average }}
+       </li>
+    </ul>
   </main>
 </template>
 
@@ -27,7 +36,7 @@ export default {
             .get('https://api.themoviedb.org/3/search/movie', {
                 params: {
                     api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
-                    query: 'jurassic park',
+                    query: 'jurassic',
                     language: 'it-IT',
                 },
             })
