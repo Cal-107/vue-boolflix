@@ -1,8 +1,17 @@
 <template>
   <section>
-      <div>
-
-      </div>
+      <li>
+           {{ title }}
+       </li>
+       <li>
+           {{ subTitle }}
+       </li>
+       <li>
+           {{ text }}
+       </li>
+       <li>
+           {{ subText }}
+       </li>
   </section>
 </template>
 
@@ -10,6 +19,10 @@
 export default {
     name: 'Card',
     props: {
+        title: String,
+        subTitle: String,
+        text: String,
+        subText: String,
     }
 }
 </script>
