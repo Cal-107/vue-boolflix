@@ -10,7 +10,7 @@
            {{ text }}
        </li>
        <li>
-           {{ subText }}
+           {{ number }}
        </li>
   </section>
 </template>
@@ -22,7 +22,7 @@ export default {
         title: String,
         subTitle: String,
         text: String,
-        subText: String,
+        number: Number,
     }
 }
 </script>

@@ -5,7 +5,7 @@
             :title="movie.title"
             :subTitle="movie.original_title"
             :text="movie.original_language"
-            :subText="movie.vote_average"
+            :number="movie.vote_average"
         />
 
        <!-- <li>
