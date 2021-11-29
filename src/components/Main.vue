@@ -23,7 +23,7 @@ export default {
     },
     props: {
         propArray: Array,
-    }
+    },
 }
 </script>
 
