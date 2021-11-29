@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header @searchInput="getMovieList" />
 
     <Main :propArray="movieList" />
   </div>
@@ -20,22 +20,18 @@ export default {
 
   data() {
       return {
-          movieList: null,
+          movieList: [],
+          inputText: '',
       }
   },
 
-
-  created() {
-      this.getMovieList()
-  },
-
   methods: {
-      getMovieList() {
+      getMovieList(text) {
           axios
           .get('https://api.themoviedb.org/3/search/movie', {
               params: {
                   api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
-                  query: 'matrix',
+                  query: text,
                   language: 'it-IT',
               },
           })
@@ -43,6 +39,10 @@ export default {
               this.movieList = response.data.results;
           })
           .catch(err => console.log(err));
+      },
+
+      setValue(text) {
+        this.inputText = text;
       },
   }
 }
