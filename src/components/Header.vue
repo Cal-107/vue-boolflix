@@ -9,8 +9,8 @@
         />
         <button
             type="submit"
-            @click.prevent="$emit('searchInput', inputValue), (clearSearch())"
-            @keyup.enter="$emit('searchInput', inputValue)"
+            @click.prevent="$emit( 'searchInput', inputValue), (clearSearch() )"
+            @keyup.enter="$emit( 'searchInput', inputValue)"
             class="searchBtn"
         >
                 Search

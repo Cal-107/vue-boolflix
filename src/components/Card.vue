@@ -6,7 +6,7 @@
        <li>
            {{ subTitle }}
        </li>
-       <li v-if="languagesFlags.includes(text)">
+       <li v-if="getFlags">
            <img :src="require(`../assets/${text}.png`)" alt="">
        </li>
        <li v-else>
@@ -26,6 +26,13 @@ export default {
             languagesFlags: ['it', 'en'],
         }
     },
+
+    computed: {
+        getFlags() {
+            return this.languagesFlags.includes(this.text)
+        }
+    },
+    
     props: {
         title: String,
         subTitle: String,
