@@ -2,6 +2,7 @@
   <main>
     <ul v-for="movie in propArray" :key="movie.id">
         <Card 
+            :image="movie.poster_path"
             :title="movie.title"
             :subTitle="movie.original_title"
             :text="movie.original_language"

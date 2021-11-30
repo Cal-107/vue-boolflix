@@ -1,6 +1,12 @@
 <template>
   <section>
-      <li>
+       <div class="img-not-found" v-if="image === null || image === undefined">
+           Not Image Found :(
+       </div>
+       <div v-else>
+            <img :src="`https://image.tmdb.org/t/p/w185/${image}`" :alt="title">
+       </div>
+       <li>
            {{ title }}
        </li>
        <li>
@@ -33,6 +39,7 @@ export default {
     },
     
     props: {
+        image: String,
         title: String,
         subTitle: String,
         text: String,
@@ -45,6 +52,17 @@ export default {
 li {
     img {
         width: 30px;
+    }
+}
+section {
+    .img-not-found {
+        width: 185px;
+        height: 270px;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 </style>

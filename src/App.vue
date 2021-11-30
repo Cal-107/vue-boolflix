@@ -29,8 +29,8 @@ export default {
   methods: {
       getList(text) {
         if (text === '') {
-          console.log('empty')
           this.movieList = null;
+          this.seriesList = null;
         } else {
           axios
           .get ('https://api.themoviedb.org/3/search/movie', {
@@ -59,7 +59,6 @@ export default {
           .catch (err => console.log(err));
         }
       },
-
 
       setValue (text) {
         this.inputText = text;

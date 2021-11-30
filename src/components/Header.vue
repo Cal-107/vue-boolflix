@@ -4,12 +4,12 @@
         <input 
             type="text" 
             placeholder="Search Movie"
-            v-model="inputValue"
+            v-model.trim="inputValue"
             @keyup.enter="$emit( 'searchInput', inputValue)"
         />
         <button
             type="submit"
-            @click.prevent="$emit( 'searchInput', inputValue), (clearSearch() )"
+            @click.prevent="$emit( 'searchInput', inputValue)"
             class="searchBtn"
         >
                 Search
@@ -26,11 +26,6 @@ export default {
             inputValue: '',
         }
     },
-    methods: {
-        clearSearch() {
-            this.inputValue = '';
-        }
-    }
 }
 </script>
 
