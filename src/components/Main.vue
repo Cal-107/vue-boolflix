@@ -12,6 +12,7 @@
 
     <ul v-for="serie in propArray2" :key="serie.id">
         <Card 
+            :image="serie.poster_path"
             :title="serie.name"
             :subTitle="serie.original_name"
             :text="serie.original_language"

@@ -1,10 +1,10 @@
 <template>
   <section>
-       <div class="img-not-found" v-if="image === null || image === undefined">
-           Not Image Found :(
-       </div>
-       <div v-else>
+       <div v-if="image != null || image != undefined">
             <img :src="`https://image.tmdb.org/t/p/w185/${image}`" :alt="title">
+       </div>
+       <div class="img-not-found" v-else>
+           Not Image Found :(
        </div>
        <li>
            {{ title }}

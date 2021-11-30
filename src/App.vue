@@ -37,7 +37,6 @@ export default {
               params: {
                   api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
                   query: text,
-                  language: 'it-IT',
               },
           })
           .then (response => {
@@ -50,7 +49,6 @@ export default {
               params: {
                   api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
                   query: text,
-                  language: 'it-IT',
               },
           })
           .then (response => {
