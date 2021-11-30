@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header @searchInput="getMovieList" />
+    <Header @searchInput="getList"/>
 
-    <Main :propArray="movieList" />
+    <Main :propArray="movieList" :propArray2="seriesList" />
   </div>
 </template>
 
@@ -21,32 +21,47 @@ export default {
   data() {
       return {
           movieList: [],
+          seriesList: [],
           inputText: '',
       }
   },
 
   methods: {
-      getMovieList(text) {
+      getList(text) {
         if (text === '') {
           console.log('empty')
           this.movieList = null;
         } else {
           axios
-          .get('https://api.themoviedb.org/3/search/movie', {
+          .get ('https://api.themoviedb.org/3/search/movie', {
               params: {
                   api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
                   query: text,
                   language: 'it-IT',
               },
           })
-          .then(response => {
+          .then (response => {
               this.movieList = response.data.results;
           })
-          .catch(err => console.log(err));
-        }  
+          .catch (err => console.log(err));
+          
+          axios
+          .get ('https://api.themoviedb.org/3/search/tv', {
+              params: {
+                  api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
+                  query: text,
+                  language: 'it-IT',
+              },
+          })
+          .then (response => {
+              this.seriesList = response.data.results;
+          })
+          .catch (err => console.log(err));
+        }
       },
 
-      setValue(text) {
+
+      setValue (text) {
         this.inputText = text;
       },
   }

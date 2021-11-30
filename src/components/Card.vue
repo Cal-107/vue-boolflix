@@ -6,12 +6,11 @@
        <li>
            {{ subTitle }}
        </li>
-       <li v-if="getFlags">
-           <img :src="require(`../assets/${text}.png`)" alt="">
+       <li>
+           <img v-if="getFlags" :src="require(`../assets/${text}.png`)" :alt="text">
+           <span v-else> {{ text }}</span>
        </li>
-       <li v-else>
-           {{ text }}
-       </li>
+       
        <li>
            {{ number }}
        </li>

@@ -1,16 +1,15 @@
 <template>
   <header>
       <form>
-
         <input 
             type="text" 
             placeholder="Search Movie"
             v-model="inputValue"
+            @keyup.enter="$emit( 'searchInput', inputValue)"
         />
         <button
             type="submit"
             @click.prevent="$emit( 'searchInput', inputValue), (clearSearch() )"
-            @keyup.enter="$emit( 'searchInput', inputValue)"
             class="searchBtn"
         >
                 Search
