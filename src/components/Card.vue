@@ -4,7 +4,7 @@
             <img :src="`https://image.tmdb.org/t/p/w185/${image}`" :alt="title">
        </div>
        <div class="img-not-found" v-else>
-           Not Image Found :(
+           Image Not Found :(
        </div>
        <li>
            {{ title }}
@@ -18,7 +18,9 @@
        </li>
        
        <li>
-           {{ number }}
+           <i v-for="(number, i) in getVote" :key="`vote-${i}`" class="fas fa-star"></i>
+
+           <i v-for="(number, i) in 5 - getVote" :key="`vote-2-${i}`" class="far fa-star"></i>
        </li>
   </section>
 </template>
@@ -35,6 +37,10 @@ export default {
     computed: {
         getFlags() {
             return this.languagesFlags.includes(this.text)
+        },
+
+        getVote() {
+            return Math.ceil( this.number / 2)
         }
     },
     

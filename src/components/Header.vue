@@ -1,6 +1,8 @@
 <template>
   <header>
-      <form>
+    <img src="https://fontmeme.com/permalink/211201/0d3bf00f62984d25d902f2b5c61959bd.png" alt="">
+
+    <nav>
         <input 
             type="text" 
             placeholder="Search Movie"
@@ -8,13 +10,12 @@
             @keyup.enter="$emit( 'searchInput', inputValue)"
         />
         <button
-            type="submit"
             @click.prevent="$emit( 'searchInput', inputValue)"
             class="searchBtn"
         >
                 Search
         </button>
-      </form>
+    </nav>
   </header>
 </template>
 
@@ -31,7 +32,12 @@ export default {
 
 <style lang="scss" scoped>
 header {
+    height: 8%;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
     button {
         margin-left: 1rem;
     }
