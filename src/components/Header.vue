@@ -16,7 +16,7 @@
     <nav class="nav-2">
         <input 
             type="text" 
-            placeholder="Search Movie"
+            placeholder="Search Movies or Series"
             v-model.trim="inputValue"
             @keyup.enter="$emit( 'searchInput', inputValue)"
         />

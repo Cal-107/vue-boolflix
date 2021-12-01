@@ -1,8 +1,8 @@
 <template>
   <main class="p-5">
-    <section class="my-box d-flex flex-column">
-      <div class="d-flex flex-column overflow-scroll pb-4">
-          <h1 class="p-3 align-self-start">
+    <section class="my-box d-flex flex-column" v-if="(propArray != 0) || (propArray2 != 0)">
+      <div class="d-flex flex-column overflow-X pb-4">
+          <h1 class="p-3 align-self-start" v-show="propArray != 0">
               <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Netflix_2015_N_logo.svg" alt="">
               <span class="text-uppercase fs-3">Movies</span>
           </h1>
@@ -24,8 +24,8 @@
           </div>
       </div>
     
-      <div class="d-flex flex-column overflow-scroll pb-4">
-        <h1 class="p-3 align-self-start">
+      <div class="d-flex flex-column overflow-X pb-4">
+        <h1 class="p-3 align-self-start" v-show="propArray2 != 0">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Netflix_2015_N_logo.svg" alt=""> 
             <span class="text-uppercase fs-3">Series</span>
         </h1>
@@ -46,7 +46,12 @@
             </ul>
         </div>
       </div>
-    </section>  
+    </section>
+    <!-- <section v-else>
+        <h1>
+            Choisee your movie
+        </h1>
+    </section> -->
   </main>
 </template>
 
@@ -71,8 +76,20 @@ export default {
 main {
     color: #fff;
     background-color: #141414;
+    // .wallapper {
+    //     img {
+    //         width: 100%;
+    //         height: 100%;
+    //     }
+    // }
     .my-box {
         margin-top: 3rem;
+        .overflow-X {
+            overflow-x: scroll;
+        }
+        ul {
+            padding-left: 2.8rem;
+        }
         h1 {
             text-align: center;
             letter-spacing: .7rem;
