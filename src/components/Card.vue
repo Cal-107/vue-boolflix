@@ -1,27 +1,37 @@
 <template>
   <section>
-       <div v-if="image != null || image != undefined">
-            <img :src="`https://image.tmdb.org/t/p/w185/${image}`" :alt="title">
-       </div>
-       <div class="img-not-found" v-else>
-           Image Not Found :(
-       </div>
-       <li>
-           {{ title }}
-       </li>
-       <li>
-           {{ subTitle }}
-       </li>
-       <li>
-           <img v-if="getFlags" :src="require(`../assets/${text}.png`)" :alt="text">
-           <span v-else> {{ text }}</span>
-       </li>
-       
-       <li>
-           <i v-for="(number, i) in getVote" :key="`vote-${i}`" class="fas fa-star"></i>
+      <div class="all-box">
+            <div v-if="image != null || image != undefined">
+                 <img class="img-poster" :src="`https://image.tmdb.org/t/p/w500/${image}`" :alt="title">
+            </div>
+            <div class="img-not-found" v-else>
+                Image Not Found :(
+            </div>
+            <div class="info-box">
+            <li>
+                {{ title }}
+            </li>
+            <li>
+                {{ subTitle }}
+            </li>
+            <li>
+                {{ text2 }}
+            </li>
+            <li>
+                <img v-if="getFlags" :src="require(`../assets/${text}.png`)" :alt="text">
+                <span v-else> {{ text }}</span>
+            </li>
+            
+            <li>
+                <i v-for="(number, i) in getVote" :key="`vote-${i}`" class="fas fa-star"></i>
+        
+                <i v-for="(number, i) in 5 - getVote" :key="`vote-2-${i}`" class="far fa-star"></i>
+            </li>
+            </div>
+      </div>
 
-           <i v-for="(number, i) in 5 - getVote" :key="`vote-2-${i}`" class="far fa-star"></i>
-       </li>
+      
+
   </section>
 </template>
 
@@ -50,6 +60,7 @@ export default {
         subTitle: String,
         text: String,
         number: Number,
+        text2: String,
     },
 }
 </script>
@@ -61,9 +72,33 @@ li {
     }
 }
 section {
+    position: relative;
+    .all-box {
+        .img-poster, 
+        .img-not-found,
+        .info-box {
+            transition: all .8s ease;
+        }
+        &:hover .info-box {
+           opacity: 100;
+           transform: scale(1.05);
+        }
+        &:hover .img-poster, 
+        &:hover .img-not-found {
+            filter: blur(10px);
+            transform: scale(1.05);
+        }
+    }
+
+    .info-box {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        opacity: 0;
+    }
     .img-not-found {
-        width: 185px;
-        height: 270px;
+        width: 500px;
+        height: 748px;
         background: #000;
         color: #fff;
         display: flex;
