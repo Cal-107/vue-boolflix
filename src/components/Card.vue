@@ -5,7 +5,7 @@
                  <img class="img-poster" :src="`https://image.tmdb.org/t/p/w342/${image}`" :alt="title">
             </div>
             <div class="img-not-found" v-else>
-                Image Not Found :(
+                <img src="https://cdn2.iconfinder.com/data/icons/symbol-blue-set-3/100/Untitled-1-94-512.png" alt="">
             </div>
 
             <div class="info-box">
@@ -72,6 +72,9 @@ li {
 section {
     position: relative;
     .all-box {
+        .img-poster {
+            max-height: 513px;
+        }
         .img-poster, 
         .img-not-found,
         .info-box {
@@ -80,20 +83,18 @@ section {
         }
         &:hover .info-box {
            opacity: 100;
-           transform: scale(1.05);
+           transform: translateY(40px);
         }
         &:hover .img-poster, 
         &:hover .img-not-found {
-            filter: blur(10px) brightness(0.3);
-            transform: scale(1.05);
+            transform: translateY(-25px);
+            filter: blur(10px) brightness(0.5);
         }
         .info-box {
             position: absolute;
-            top: 8%;
+            top: 0;
             left: 0;
             opacity: 0;
-            text-align: center;
-            transform: translateY(100px);
             li {
                 font-size: 12px;
                 .text-custom {
@@ -103,19 +104,16 @@ section {
             }
             .fa-star {
                 margin-left: .5rem;
-                color: yellow;
+                color: rgb(199, 199, 26);
             }
         }
         .img-not-found {
-            width: 342px;
-            height: 513px;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            img {
+                width: 342px;
+                height: 513px;
+                object-fit: contain;
+            }
         }
     }
-
 }
 </style>

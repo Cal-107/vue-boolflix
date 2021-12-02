@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header @searchInput="getList"/>
+    <Header @searchInput="getList" :propArray="movieList" :propArray2="seriesList"/>
 
-    <Main :propArray="movieList" :propArray2="seriesList" />
+    <Main :propArray="movieList" :propArray2="seriesList" @searchInput="getList" />
   </div>
 </template>
 
@@ -29,8 +29,8 @@ export default {
   methods: {
       getList(text) {
         if (text === '') {
-          this.movieList = null;
-          this.seriesList = null;
+          this.movieList = [];
+          this.seriesList = [];
         } else {
           axios
           .get ('https://api.themoviedb.org/3/search/movie', {

@@ -2,7 +2,7 @@
   <header>
       <section class="d-flex align-items-center w-50">
         <img src="https://fontmeme.com/permalink/211201/0d3bf00f62984d25d902f2b5c61959bd.png" alt="">
-        <nav class="nav-1 px-3">
+        <nav class="nav-1 px-3" v-show="propArray != 0 || propArray2 != 0">
             <ul class="d-flex justify-content-between">
                 <li><a href="/">Home</a></li>
                 <li><a href="/">Serie TV</a> </li>
@@ -13,8 +13,8 @@
             </ul>
         </nav>
       </section>
-    <nav class="nav-2">
-        <input 
+    <nav class="nav-2" v-show="(propArray != 0) || (propArray2 != 0)">
+        <input
             type="text" 
             placeholder="Search Movies or Series"
             v-model.trim="inputValue"
@@ -38,6 +38,10 @@ export default {
             inputValue: '',
         }
     },
+    props: {
+        propArray: Array,
+        propArray2: Array,
+    }
 }
 </script>
 
@@ -48,8 +52,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background-image: linear-gradient(to top, rgba(245, 246, 252, 0) , rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
     position: fixed;
     z-index: 1;
     .nav-1 {
@@ -74,10 +77,12 @@ header {
             border: none;
             background-color: transparent;
             color: #fff;
+            transition: font-size 1s;
             &:focus {
                 outline: none;
-                border-bottom: 1px solid white;
-                border-radius: 5px;
+                border-bottom: .5px solid white;
+                padding: .5rem 2rem;
+                font-size: 1.5rem;
             }
 
         }
