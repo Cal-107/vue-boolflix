@@ -1,7 +1,7 @@
 <template>
   <main>
-    <section class="content p-5" v-if="(propArray != 0) || (propArray2 != 0)">
-        
+    <section class="content p-5" v-if="condLoader">
+        <Loader v-show="condLoader2" />
         <section class="my-box d-flex flex-column">
       
           <div class="d-flex flex-column overflow-X pb-4">
@@ -71,6 +71,7 @@
 <script>
 
 import Card from '@/components/Card';
+import Loader from '@/components/Loader.vue';
 
 export default {
     name: 'Main',
@@ -81,11 +82,20 @@ export default {
     },
     components: {
         Card,
+        Loader,
     },
     props: {
         propArray: Array,
         propArray2: Array,
     },
+    computed: {
+        condLoader() {
+            return this.propArray != 0 || this.propArray2 != 0;
+        },
+        condLoader2() {
+            return this.propArray.length === 0 || this.propArray2.length === 0;
+        }
+    }
 }
 </script>
 

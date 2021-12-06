@@ -28,7 +28,6 @@
                     <span class="text-custom">Descrizione: </span> {{ text2 }}
                 </li>
             </div>
-
       </div>
   </section>
 </template>
