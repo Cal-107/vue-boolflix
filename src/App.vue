@@ -22,6 +22,7 @@ export default {
       return {
           movieList: [],
           seriesList: [],
+          actorsList: [],
           inputText: '',
       }
   },
@@ -53,6 +54,18 @@ export default {
           })
           .then (response => {
               this.seriesList = response.data.results;
+          })
+          .catch (err => console.log(err));
+
+          axios
+          .get ('https://api.themoviedb.org/3/search/person', {
+              params: {
+                  api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
+                  query: text,
+              },
+          })
+          .then (response => {
+              this.actorsList = response.data.results;
           })
           .catch (err => console.log(err));
         }
