@@ -23,6 +23,7 @@ export default {
           movieList: [],
           seriesList: [],
           actorsList: [],
+          nameList:  [],
           inputText: '',
       }
   },
@@ -57,7 +58,7 @@ export default {
           })
           .catch (err => console.log(err));
 
-          axios
+            axios
           .get ('https://api.themoviedb.org/3/search/person', {
               params: {
                   api_key: '7872b69ec498a7e0e4e9f9dadbe23059',
@@ -66,6 +67,16 @@ export default {
           })
           .then (response => {
               this.actorsList = response.data.results;
+
+              this.actorsList.forEach(el => {
+                this.nameList.push(el.known_for)
+              })
+
+              // this.nameList.forEach(el => {
+              //   if (el.original_title === this.movieList.original_title) {
+              //     console.log(el);
+              //   }
+              // })
           })
           .catch (err => console.log(err));
         }

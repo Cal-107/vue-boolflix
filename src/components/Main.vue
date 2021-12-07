@@ -92,10 +92,11 @@ export default {
         condLoader() {
             return this.propArray != 0 || this.propArray2 != 0;
         },
+        
         // condLoader2() {
         //     return this.propArray == 0 || this.propArray2 == 0;
         // }
-    }
+    },
 }
 </script>
 

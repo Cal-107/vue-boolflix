@@ -27,6 +27,9 @@
                 <li>
                     <span class="text-custom">Descrizione: </span> {{ text2 }}
                 </li>
+                <li>
+                    <span>Nome Attore</span> {{ nameActor }}
+                </li>
             </div>
       </div>
   </section>
@@ -58,6 +61,7 @@ export default {
         text: String,
         number: Number,
         text2: String,
+        nameActor: String,
     },
 }
 </script>
@@ -73,12 +77,14 @@ section {
     .all-box {
         .img-poster {
             max-height: 513px;
+            cursor: pointer;
         }
         .img-poster, 
         .img-not-found,
         .info-box {
             transition: all .3s ease-in-out;
             border-radius: 8px;
+            cursor: pointer;
         }
         &:hover .info-box {
            opacity: 100;
